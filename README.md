@@ -1,7 +1,10 @@
 #PS2Keyboard-to-USBHIDGameController
-Using the Teensy Microcontroller, 
+
+Using the Teensy Microcontroller.
+
 Why did I choose such a long repo name?
-Why did I choose suchn a bad repo name?
+
+Why did I choose such a bad repo name?
 
 ## Requirements
 1. Teensy, I used the Teensy-LC but im assuming that all the current ones will work.
