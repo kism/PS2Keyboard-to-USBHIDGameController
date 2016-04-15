@@ -83,7 +83,7 @@ void loop() {
     } else if (scn == 0x74) { //Right
       Joystick.button(14, 1);
     } else {
-      Serial.print("\nMisc 0xE0 button release: ");
+      Serial.print("\nMisc 0xE0 button press: ");
       Serial.print(scn, HEX);
     }
   }
