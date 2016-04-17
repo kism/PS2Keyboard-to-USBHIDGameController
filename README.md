@@ -12,3 +12,7 @@ Why did I choose such a bad repo name?
 3. My very slightly (like literally three lines of code total) modified Arduino PS/2 Keyboard library avalible at https://github.com/kism/PS2Keyboard
 4. The Teensyduino add-on for the official Arduino IDE (Make sure the USB type is set to one of the Joystick options)
 
+## Demonstration Video
+
+[![Demo](https://img.youtube.com/vi/qDycjvavt3w/0.jpg)](https://www.youtube.com/watch?v=qDycjvavt3w)
+
