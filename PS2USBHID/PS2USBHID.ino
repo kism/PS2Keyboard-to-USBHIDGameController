@@ -1,12 +1,7 @@
 /* 
 PS/2 To HID Gamepad
-http://github.com/kism
-
-Requirements: 
-  My slightly modified Arduino PS2Keyboard library, avalible at https://github.com/kism/PS2Keyboard
-
-Todo: HID Descriptions or whatever they are
-
+For the Teensy, only tested on the Teensy-LC
+Make sure you get the latest git version of PS2keyboard
 */
 
 #include <PS2Keyboard.h>
@@ -25,7 +20,7 @@ void setup() {
 }
 
 void loop() {
-  int scn = getNextPS2Event();
+  int scn = getNextPS2Event(); 
   //Main key release events
   if (scn == 0xF0){
     scn = getNextPS2Event();
