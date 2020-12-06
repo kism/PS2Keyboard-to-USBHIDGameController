@@ -34,7 +34,7 @@ const int l2 = 21;
 
 void setup() {
   keyboard.begin(DataPin, IRQpin);
-  Serial.begin(9600);
+  //Serial.begin(9600);
   pinMode(dpadup, OUTPUT);
   pinMode(dpaddown, OUTPUT);
   pinMode(dpadleft, OUTPUT);
