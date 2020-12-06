@@ -2,8 +2,8 @@
 PS/2 To Brook Fighting Board
 For the Teensy, only tested on the Teensy-LC
 Make sure you get the latest git version of PS2keyboard
+https://github.com/PaulStoffregen/PS2Keyboard
 */
-
 
 #include <PS2Keyboard.h>
 //#include <digitalWriteFast.h>
@@ -57,127 +57,121 @@ void setup() {
 
 void loop() {
   int scn = getNextPS2Event();
-
-  //Main key release events
-  if (scn == 0xF0) {
+  switch (scn) {  
+  case 0xF0: //Regular Key release events
     scn = getNextPS2Event();
-
     switch (scn) {
-    case 0x1C:
+    case 0x1C: //A
       digitalWriteFast(squar, LOW);
       break;
-    case 0x1B:
+    case 0x1B: //S
       digitalWriteFast(triangle, LOW);
       break;
-    case 0x23:
+    case 0x23: //D
       digitalWriteFast(r1, LOW);
       break;
-    case 0x2B:
+    case 0x2B: //F
       digitalWriteFast(l1, LOW);
       break;
-    case 0x1A:
+    case 0x1A: //Z
       digitalWriteFast(cross, LOW);
       break;
-    case 0x22:
+    case 0x22: //X
       digitalWriteFast(circle, LOW);
       break;
-    case 0x21:
+    case 0x21: //C
       digitalWriteFast(r2, LOW);
       break;
-    case 0x2A:
+    case 0x2A: //V
       digitalWriteFast(l2, LOW);
       break;
-    case 0x16:
+    case 0x16: //1
       digitalWriteFast(star, LOW);
       break;
-    case 0x2E:
+    case 0x2E: //5
       digitalWriteFast(sel, LOW);
       break;
-    case 0x46:
+    case 0x46: //5
       digitalWriteFast(psbutton, LOW);
       break;
     default:
       break;
     }
-  }
+    break;
 
-  //Arrow events
-  else if (scn == 0xE0) {
+    
+  case 0xE0: //Arrow events
     scn = getNextPS2Event();
-
-    //Arrow key release events
-    if (scn == 0xF0) {
+    switch (scn) { 
+    case 0xF0: //Arrow key release events
       scn = getNextPS2Event();
       switch (scn) {
-      case 0x75:
+      case 0x75://Up
         digitalWriteFast(dpadup, LOW);
         break;
-      case 0x72:
+      case 0x72: //Down
         digitalWriteFast(dpaddown, LOW);
         break;
-      case 0x6B:
+      case 0x6B: //Left
         digitalWriteFast(dpadleft, LOW);
         break;
-      case 0x74:
+      case 0x74: //Right
         digitalWriteFast(dpadright, LOW);
         break;
       default:
         break;
       }
-    }
-    else {
-      switch (scn) {
-      case 0x75:
-        digitalWriteFast(dpadup, HIGH);
-        break;
-      case 0x72:
-        digitalWriteFast(dpaddown, HIGH);
-        break;
-      case 0x6B:
-        digitalWriteFast(dpadleft, HIGH);
-        break;
-      case 0x74:
-        digitalWriteFast(dpadright, HIGH);
-        break;
-      default:
-        break;
-      }
-    }
-  }
+      break;
 
-  //Regular Key press events
-  switch (scn) {
-  case 0x1C:
+      //Arrow Key press events
+    case 0x75: //Up
+      digitalWriteFast(dpadup, HIGH);
+      break;
+    case 0x72: //Down
+      digitalWriteFast(dpaddown, HIGH);
+      break;
+    case 0x6B: //Left
+      digitalWriteFast(dpadleft, HIGH);
+      break;
+    case 0x74: //Right
+      digitalWriteFast(dpadright, HIGH);
+      break;
+    default:
+      break;
+    }
+
+    // Regular key press events
+  case 0x1C: //A
     digitalWriteFast(squar, HIGH);
     break;
-  case 0x1B:
+  case 0x1B: //S
     digitalWriteFast(triangle, HIGH);
     break;
-  case 0x23:
+  case 0x23: //D
     digitalWriteFast(r1, HIGH);
     break;
-  case 0x2B:
+  case 0x2B: //F
     digitalWriteFast(l1, HIGH);
     break;
-  case 0x1A:
+  case 0x1A: //Z
     digitalWriteFast(cross, HIGH);
     break;
-  case 0x22:
+  case 0x22: //X
     digitalWriteFast(circle, HIGH);
     break;
-  case 0x21:
+  case 0x21: //C
     digitalWriteFast(r2, HIGH);
     break;
-  case 0x2A:
+  case 0x2A: //V
     digitalWriteFast(l2, HIGH);
     break;
-  case 0x16:
+  case 0x16: //1
     digitalWriteFast(star, HIGH);
     break;
-  case 0x2E:
+  case 0x2E: //5
     digitalWriteFast(sel, HIGH);
     break;
-  case 0x46:
+  case 0x46: //5
     digitalWriteFast(psbutton, HIGH);
     break;
   default:
