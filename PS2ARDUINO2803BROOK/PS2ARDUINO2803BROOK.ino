@@ -139,6 +139,7 @@ void loop() {
     default:
       break;
     }
+    break;
 
     // Regular key press events
   case 0x1C: //A
